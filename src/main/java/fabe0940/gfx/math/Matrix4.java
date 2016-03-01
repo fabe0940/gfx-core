@@ -1,6 +1,7 @@
 package fabe0940.gfx.math;
 
 import fabe0940.gfx.math.Matrix4Factory;
+import fabe0940.gfx.math.Point4;
 
 public class Matrix4 {
 	public static final int dim = 4;
@@ -21,6 +22,21 @@ public class Matrix4 {
 		}
 
 		return;
+	}
+
+	public static Point4 multiply(Point4 x, Matrix4 a) {
+		int i;
+		double val;
+		Point4 res;
+
+		res = new Point4();
+
+		for (i = 0; i < Matrix4.dim; i++) {
+			val = Matrix4.coeff(x.get(), a.getCol(i));
+			res.setEntry(i, val);
+		}
+
+		return res;
 	}
 
 	public static Matrix4 multiply(Matrix4 a, Matrix4 b) {
@@ -87,14 +103,6 @@ public class Matrix4 {
 		return;
 	}
 
-	public double getEntry(int row, int col) {
-		return M[row][col];
-	}
-
-	public double[] getRow(int row) {
-		return M[row];
-	}
-
 	public double[] getCol(int col) {
 		int row;
 		double[] res = new double[dim];
@@ -106,7 +114,17 @@ public class Matrix4 {
 		return res;
 	}
 
+	public double getEntry(int row, int col) {
+		return M[row][col];
+	}
+
+	public double[] getRow(int row) {
+		return M[row];
+	}
+
 	public void setEntry(int row, int col, double val) {
 		M[row][col] = val;
+
+		return;
 	}
 }
