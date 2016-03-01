@@ -1,0 +1,14 @@
+# Binary files
+#*.class
+
+# VIM temp files
+*.swp
+
+# Build files
+build/*
+
+# Gradle files
+.gradle/*
+gradle/*
+gradlew
+gradlew.bat
