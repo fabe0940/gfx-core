@@ -13,7 +13,7 @@ public class Matrix4 {
 
 		for (row = 0; row < dim; row++) {
 			for (col = 0; col < dim; col++) {
-				System.out.print(m.getEntry(row, col));
+				System.out.format("%.3f", m.getEntry(row, col));
 				if (col != (dim - 1)) {
 					System.out.print(", ");
 				}

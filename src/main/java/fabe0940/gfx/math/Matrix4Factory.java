@@ -42,17 +42,6 @@ public class Matrix4Factory {
 		return res;
 	}
 
-	public static Matrix4 rotation(double x, double y, double z) {
-		Matrix4 res;
-
-		res = identity();
-		res = Matrix4.multiply(res, rotationX(x));
-		res = Matrix4.multiply(res, rotationY(y));
-		res = Matrix4.multiply(res, rotationZ(z));
-
-		return res;
-	}
-
 	public static Matrix4 perspective(double r) {
 		Matrix4 res;
 

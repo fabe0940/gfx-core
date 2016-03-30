@@ -1,22 +1,28 @@
 package fabe0940.gfx;
 
-import fabe0940.gfx.math.Matrix4;
-import fabe0940.gfx.math.Matrix4Factory;
-import fabe0940.gfx.math.Point2;
-import fabe0940.gfx.math.Point3;
-import fabe0940.gfx.math.Point4;
+import java.util.*;
+import fabe0940.gfx.*;
+import fabe0940.gfx.core.*;
+import fabe0940.gfx.math.*;
 
 public class Test {
 	public static void main(String[] args) {
-		double[] vals = {3, 4, 5, 1};
-		Point4 p = new Point4(vals);
+		Viewport view = new Viewport(
+			new Point2(0, 500),
+			new Point2(500, 500)
+		);
+		Window win = new Window(
+			new Point3(-0.5, -0.5, 0),
+			new Point3(-30, -30, 0),
+			25
+		);
+		World w = new Square(view, win);
+		Frame frame = new Frame(
+			new Point2(400, 400),
+			new Point2(500, 500),
+			w
+		);
 
-		Point4.print(p);
-
-		p = Matrix4.multiply(p, Matrix4Factory.perspective(5));
-
-		Point4.print(p);
-
-		return;
+		while (true);
 	}
 }

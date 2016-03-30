@@ -10,7 +10,7 @@ public class Point3 {
 		int i;
 
 		for (i = 0; i < dim; i++) {
-			System.out.print(p.getEntry(i));
+			System.out.format("%.3f", p.getEntry(i));
 			if (i != (dim - 1)) {
 				System.out.print(", ");
 			}
@@ -44,12 +44,34 @@ public class Point3 {
 		return;
 	}
 
+	public Point3(double x, double y, double z) {
+		P = new double[dim];
+
+		P[0] = x;
+		P[1] = y;
+		P[2] = z;
+
+		return;
+	}
+
 	public double[] get() {
 		return P;
 	}
 
 	public double getEntry(int i) {
 		return P[i];
+	}
+
+	public double getX() {
+		return getEntry(0);
+	}
+
+	public double getY() {
+		return getEntry(1);
+	}
+
+	public double getZ() {
+		return getEntry(2);
 	}
 
 	public void setEntry(int i, double val) {
