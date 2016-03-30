@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'fabe0940.gfx.core.Test'
+mainClassName = 'fabe0940.gfx.Test'
 
 sourceCompatibility = 1.8
 version = '0.1'
