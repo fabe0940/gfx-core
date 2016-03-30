@@ -3,11 +3,7 @@ package fabe0940.gfx.math;
 import fabe0940.gfx.math.Matrix4;
 
 public class Matrix4Factory {
-	public Matrix4Factory() {
-		return;
-	}
-
-	public Matrix4 identity() {
+	public static Matrix4 identity() {
 		int col;
 		int row;
 		Matrix4 res;

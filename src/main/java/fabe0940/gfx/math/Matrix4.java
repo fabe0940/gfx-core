@@ -40,16 +40,18 @@ public class Matrix4 {
 	}
 
 	public static Matrix4 multiply(Matrix4 a, Matrix4 b) {
-		return Matrix4.multiply(new Matrix4Factory(), a, b);
-	}
-
-	public static Matrix4 multiply(Matrix4Factory f, Matrix4 a, Matrix4 b) {
 		int col;
 		int row;
 		double val;
+		double[][] identity = {
+			{ 1, 0, 0, 0 },
+			{ 0, 1, 0, 0 },
+			{ 0, 0, 1, 0 },
+			{ 0, 0, 0, 1 },
+		};
 		Matrix4 res;
 
-		res = f.identity();
+		res = new Matrix4(identity);
 
 		for (row = 0; row < dim; row++) {
 			for (col = 0; col < dim; col++) {
