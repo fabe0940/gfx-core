@@ -1,13 +1,12 @@
 package fabe0940.gfx.math;
 
 import fabe0940.gfx.math.Point2;
-import fabe0940.gfx.math.Point3;
 
-public class Point4 {
-	public static final int dim = 4;
+public class Point3 {
+	public static final int dim = 3;
 	private double[] P;
 
-	public static void print(Point4 p) {
+	public static void print(Point3 p) {
 		int i;
 
 		for (i = 0; i < dim; i++) {
@@ -21,7 +20,7 @@ public class Point4 {
 		return;
 	}
 
-	public Point4() {
+	public Point3() {
 		int i;
 
 		P = new double[dim];
@@ -33,7 +32,7 @@ public class Point4 {
 		return;
 	}
 
-	public Point4(double[] vals) {
+	public Point3(double[] vals) {
 		int i;
 
 		P = new double[dim];
@@ -63,23 +62,11 @@ public class Point4 {
 		int i;
 		double[] vals;
 
-		vals = new double[dim - 2];
-		for (i = 0; i < dim - 2; i++) {
-			vals[i] = P[i];
-		}
-
-		return new Point2(vals);
-	}
-
-	public Point3 flatten3() {
-		int i;
-		double[] vals;
-
 		vals = new double[dim - 1];
 		for (i = 0; i < dim - 1; i++) {
 			vals[i] = P[i];
 		}
 
-		return new Point3(vals);
+		return new Point2(vals);
 	}
 }
