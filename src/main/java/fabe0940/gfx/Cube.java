@@ -7,8 +7,8 @@ import fabe0940.gfx.math.Point3;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Square extends World {
-	public Square(Viewport v, Window w) {
+public class Cube extends World {
+	public Cube(Viewport v, Window w) {
 		super(v, w);
 	}
 
