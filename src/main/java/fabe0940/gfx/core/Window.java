@@ -11,8 +11,6 @@ public class Window {
 
 	public Window(Point3 f, Point3 rot, double r) {
 		camera = Matrix4Factory.identity();
-		camera = Matrix4.multiply(camera, Matrix4Factory.scaling(
-			0.1, 0.1, 0.1));
 		camera = Matrix4.multiply(camera, Matrix4Factory.translation(
 			-1 * f.getX(), -1 * f.getY(), -1 * f.getZ()));
 		camera = Matrix4.multiply(camera,
@@ -32,6 +30,8 @@ public class Window {
 
 		point = new Point4(p.getX(), p.getY(), p.getZ(), 1);
 		res = Matrix4.multiply(point, camera);
+		res.setEntry(0, res.getX() / res.getAlpha());
+		res.setEntry(1, res.getY() / res.getAlpha());
 
 		return res.flatten2();
 	}

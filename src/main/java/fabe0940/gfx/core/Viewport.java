@@ -22,8 +22,8 @@ public class Viewport {
 		double y;
 		Point2 res;
 
-		x = position.getX() + p.getX() * size.getX();
-		y = position.getY() - p.getY() * size.getY();
+		x = position.getX() + (((p.getX() + 1) / 2) * size.getX());
+		y = position.getY() - (((p.getY() + 1) / 2) * size.getY());
 
 		res = new Point2(x, y);
 

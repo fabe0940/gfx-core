@@ -21,8 +21,20 @@ public abstract class World {
 
 	public abstract void draw(Graphics g);
 
+	public void moveTo3D(Graphics g, double x, double y, double z) {
+		moveTo3D(g, new Point3(x, y, z));
+
+		return;
+	}
+
 	public void moveTo3D(Graphics g, Point3 p) {
 		cursor = p;
+
+		return;
+	}
+
+	public void drawTo3D(Graphics g, double x, double y, double z) {
+		drawTo3D(g, new Point3(x, y, z));
 
 		return;
 	}

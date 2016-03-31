@@ -23,7 +23,7 @@ public class Frame extends JComponent {
 		frame = new JFrame("CS324 Homework 4 - fabe0940");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds((int) position.getX(), (int) position.getY(),
-			(int) size.getX(), (int) size.getY() + 28);
+			(int) size.getX(), (int) size.getY());
 		frame.getContentPane().add(this);
 		frame.setVisible(true);
 

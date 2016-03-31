@@ -4,6 +4,7 @@ import fabe0940.gfx.core.Viewport;
 import fabe0940.gfx.core.Window;
 import fabe0940.gfx.core.World;
 import fabe0940.gfx.math.Point3;
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Square extends World {
@@ -12,46 +13,64 @@ public class Square extends World {
 	}
 
 	public void draw(Graphics g) {
+
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, 1000, 1000);
+
+		g.setColor(Color.BLACK);
+		moveTo3D(g, -1,  0,  0);
+		drawTo3D(g,  1,  0,  0);
+		moveTo3D(g,  0, -1,  0);
+		drawTo3D(g,  0,  1,  0);
+		moveTo3D(g,  0,  0, -1);
+		drawTo3D(g,  0,  0,  1);
+
 		/* front */
-		moveTo3D(g, new Point3( 1,  1,  1));
-		drawTo3D(g, new Point3( 1, -1,  1));
-		drawTo3D(g, new Point3(-1, -1,  1));
-		drawTo3D(g, new Point3(-1,  1,  1));
-		drawTo3D(g, new Point3( 1,  1,  1));
+		g.setColor(Color.RED);
+		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* back */
-		moveTo3D(g, new Point3( 1,  1, -1));
-		drawTo3D(g, new Point3( 1, -1, -1));
-		drawTo3D(g, new Point3(-1, -1, -1));
-		drawTo3D(g, new Point3(-1,  1, -1));
-		drawTo3D(g, new Point3( 1,  1, -1));
+		g.setColor(Color.BLUE);
+		moveTo3D(g, new Point3( 0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
 
 		/* left */
-		moveTo3D(g, new Point3(-1,  1,  1));
-		drawTo3D(g, new Point3(-1,  1, -1));
-		drawTo3D(g, new Point3(-1, -1, -1));
-		drawTo3D(g, new Point3(-1, -1,  1));
-		drawTo3D(g, new Point3(-1,  1,  1));
+		g.setColor(Color.GREEN);
+		moveTo3D(g, new Point3(-0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5,  0.5));
 
 		/* right */
-		moveTo3D(g, new Point3( 1,  1,  1));
-		drawTo3D(g, new Point3( 1,  1, -1));
-		drawTo3D(g, new Point3( 1, -1, -1));
-		drawTo3D(g, new Point3( 1, -1,  1));
-		drawTo3D(g, new Point3( 1,  1,  1));
+		g.setColor(Color.RED);
+		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* top */
-		moveTo3D(g, new Point3( 1,  1,  1));
-		drawTo3D(g, new Point3( 1,  1, -1));
-		drawTo3D(g, new Point3(-1,  1, -1));
-		drawTo3D(g, new Point3(-1,  1,  1));
-		drawTo3D(g, new Point3( 1,  1,  1));
+		g.setColor(Color.BLUE);
+		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5,  0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* bottom */
-		moveTo3D(g, new Point3( 1, -1,  1));
-		drawTo3D(g, new Point3( 1, -1, -1));
-		drawTo3D(g, new Point3(-1, -1, -1));
-		drawTo3D(g, new Point3(-1, -1,  1));
-		drawTo3D(g, new Point3( 1, -1,  1));
+		g.setColor(Color.GREEN);
+		moveTo3D(g, new Point3( 0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));
+		drawTo3D(g, new Point3(-0.5, -0.5,  0.5));
+		drawTo3D(g, new Point3( 0.5, -0.5,  0.5));
 	}
 }
