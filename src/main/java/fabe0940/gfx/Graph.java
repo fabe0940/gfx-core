@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.lang.Math;
 
 public class Graph extends World {
-	private static double SECTIONS = 100.0;
+	private static double SECTIONS = 42.0;
 	private static double X_FROM = -2.0 * Math.PI;
 	private static double X_TO = 2.0 * Math.PI;
 	private static double X_INTERVAL = (X_TO - X_FROM) / SECTIONS;
