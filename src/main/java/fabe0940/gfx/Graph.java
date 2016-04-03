@@ -10,8 +10,14 @@ import java.lang.Math;
 
 public class Graph extends World {
 	private static double SECTIONS = 100.0;
-	private static double INTERVAL = (Math.PI * 4.0) / SECTIONS;
-	private static double TWO_PI = 2.0  * Math.PI;
+	private static double X_FROM = -2.0 * Math.PI;
+	private static double X_TO = 2.0 * Math.PI;
+	private static double X_INTERVAL = (X_TO - X_FROM) / SECTIONS;
+	private static double Y_FROM = -2.0 * Math.PI;
+	private static double Y_TO = 2.0 * Math.PI;
+	private static double Y_INTERVAL = (Y_TO - Y_FROM) / SECTIONS;
+	private static double Z_FROM = -5.0;
+	private static double Z_TO = 7.0;
 
 	public Graph(Viewport v, Window w) {
 		super(v, w);
@@ -25,45 +31,79 @@ public class Graph extends World {
 		double z;
 
 		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, 1000, 1000);
+		g.fillRect(0, 0, 700, 700);
+
+		x = X_FROM;
+		y = Y_FROM;
+		z = z(x, y);
+		moveTo3D(g, x, -1.0 * z, y);
+		for (x = X_FROM; x <= X_TO; x += X_INTERVAL) {
+			for (y = Y_FROM; y <= Y_TO; y += Y_INTERVAL) {
+				z = z(x, y);
+				g.setColor(calcColor(x, y, z));
+				drawTo3D(g, x, -1.0 * z, y);
+			}
+			y = Y_FROM;
+			z = z(x, y);
+			moveTo3D(g, x, -1.0 * z, y);
+		}
+
+		x = X_FROM;
+		y = Y_FROM;
+		z = z(x, y);
+		moveTo3D(g, x, -1.0 * z, y);
+		for (y = Y_FROM; y <= Y_TO; y += Y_INTERVAL) {
+			for (x = X_FROM; x <= X_TO; x += X_INTERVAL) {
+				z = z(x, y);
+				g.setColor(calcColor(x, y, z));
+				drawTo3D(g, x, -1.0 * z, y);
+			}
+			x = Y_FROM;
+			z = z(x, y);
+			moveTo3D(g, x, -1.0 * z, y);
+		}
 
 		g.setColor(Color.BLACK);
-		moveTo3D(g, -1,  0,  0);
-		drawTo3D(g,  1,  0,  0);
-		moveTo3D(g,  0, -1,  0);
-		drawTo3D(g,  0,  1,  0);
-		moveTo3D(g,  0,  0, -1);
-		drawTo3D(g,  0,  0,  1);
+		moveTo3D(g, X_FROM, 0, 0);
+		drawTo3D(g, X_TO, 0, 0);
+		moveTo3D(g, 0, 0, Y_FROM);
+		drawTo3D(g, 0, 0, Y_TO);
+		moveTo3D(g, 0, -1.0 * Z_FROM, 0);
+		drawTo3D(g, 0, -1.0 * Z_TO, 0);
 
-		x = -2.0 * Math.PI;
-		y = -2.0 * Math.PI;
-		z = z(x, y);
-		moveTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-		for (x = -1 * TWO_PI; x <= TWO_PI; x += INTERVAL) {
-			for (y = -1 * TWO_PI; y <= TWO_PI; y += INTERVAL) {
-				z = z(x, y);
-				g.setColor(color(x, y, z));
-				drawTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-			}
-			y = -1 * TWO_PI;
-			z = z(x, y);
-			moveTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-		}
+		g.setColor(Color.BLACK);
+		moveTo3D(g, X_FROM - 0.3, 0, 0);
+		writeTo3D(g, "-x");
+		moveTo3D(g, X_TO, 0, 0);
+		writeTo3D(g, "+x");
+		moveTo3D(g, 0, 0, Y_FROM);
+		writeTo3D(g, "-y");
+		moveTo3D(g, 0, 0, Y_TO);
+		writeTo3D(g, "+y");
+		moveTo3D(g, 0, -1.0 * Z_FROM, 0);
+		writeTo3D(g, "-z");
+		moveTo3D(g, 0, -1.0 * Z_TO, 0);
+		writeTo3D(g, "+z");
 
-		x = -2.0 * Math.PI;
-		y = -2.0 * Math.PI;
-		z = z(x, y);
-		moveTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-		for (y = -1 * TWO_PI; y <= TWO_PI; y += INTERVAL) {
-			for (x = -1 * TWO_PI; x <= TWO_PI; x += INTERVAL) {
-				z = z(x, y);
-				g.setColor(color(x, y, z));
-				drawTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-			}
-			x = -1 * TWO_PI;
-			z = z(x, y);
-			moveTo3D(g, x / TWO_PI, z / TWO_PI, y / TWO_PI);
-		}
+		g.setColor(Color.BLACK);
+		moveTo3D(g, 1, 0, 0);
+		writeTo3D(g, "1");
+		moveTo3D(g, 2, 0, 0);
+		writeTo3D(g, "2");
+		moveTo3D(g, 3, 0, 0);
+		writeTo3D(g, "3");
+		moveTo3D(g, 0, -1, 0);
+		writeTo3D(g, "1");
+		moveTo3D(g, 0, -2, 0);
+		writeTo3D(g, "2");
+		moveTo3D(g, 0, -3, 0);
+		writeTo3D(g, "3");
+		moveTo3D(g, 0, 0, 1);
+		writeTo3D(g, "1");
+		moveTo3D(g, 0, 0, 2);
+		writeTo3D(g, "2");
+		moveTo3D(g, 0, 0, 3);
+		writeTo3D(g, "3");
 
 		return;
 	}
@@ -78,14 +118,14 @@ public class Graph extends World {
 		return res;
 	}
 
-	public Color color(double x, double y, double z) {
+	public Color calcColor(double x, double y, double z) {
 		Color res;
 
-		res = new Color(
-			(float) ((x + TWO_PI) / (2.0 * TWO_PI)),
-			(float) 0.0,
-			(float) ((y + TWO_PI) / (2.0 * TWO_PI))
-		);
+		res = new Color(Color.HSBtoRGB(
+			(float) ((x * y) / (4.0 * Math.PI * Math.PI)),
+			(float) 1.0,
+			(float) 1.0
+		));
 
 		return res;
 	}

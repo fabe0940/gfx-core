@@ -5,9 +5,9 @@ import fabe0940.gfx.math.Point3;
 import java.awt.Graphics;
 
 public class Viewport {
-	private Point3 cursor;
-	private Point2 position;
-	private Point2 size;
+	protected Point3 cursor;
+	protected Point2 position;
+	protected Point2 size;
 
 	public Viewport(Point2 p, Point2 s) {
 		cursor = new Point3();

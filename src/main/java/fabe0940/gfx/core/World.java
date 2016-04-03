@@ -53,4 +53,14 @@ public abstract class World {
 
 		return;
 	}
+
+	public void writeTo3D(Graphics g, String txt) {
+		Point2 pos;
+
+		pos = viewport.viewportToFrame(window.windowToViewport(cursor));
+
+		g.drawString(txt, (int) pos.getX(), (int) pos.getY());
+
+		return;
+	}
 }
