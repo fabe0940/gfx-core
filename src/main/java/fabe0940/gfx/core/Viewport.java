@@ -9,6 +9,7 @@ public class Viewport {
 	protected Point2 position;
 	protected Point2 size;
 
+	/* Constructor */
 	public Viewport(Point2 p, Point2 s) {
 		cursor = new Point3();
 		position = p;
@@ -17,6 +18,7 @@ public class Viewport {
 		return;
 	}
 
+	/* Convert from viewport coordinates to frame pixels */
 	public Point2 viewportToFrame(Point2 p) {
 		double x;
 		double y;

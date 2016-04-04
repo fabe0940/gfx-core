@@ -7,6 +7,7 @@ public class ScalingViewport extends Viewport {
 	private Point2 domain;
 	private Point2 range;
 
+	/* Default constructor */
 	public ScalingViewport(Point2 p, Point2 s) {
 		super(p, s);
 
@@ -16,6 +17,7 @@ public class ScalingViewport extends Viewport {
 		return;
 	}
 
+	/* Construct with specific domain and range */
 	public ScalingViewport(Point2 p, Point2 s, Point2 d, Point2 r) {
 		super(p, s);
 
@@ -25,6 +27,7 @@ public class ScalingViewport extends Viewport {
 		return;
 	}
 
+	/* Convert from viewport coordinates to frame pixels */
 	public Point2 viewportToFrame(Point2 p) {
 		double x;
 		double y;

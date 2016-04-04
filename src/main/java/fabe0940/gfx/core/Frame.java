@@ -14,6 +14,7 @@ public class Frame extends JComponent {
 	private Point2 size;
 	private World world;
 
+	/* Constructor */
 	public Frame(Point2 p, Point2 s, World w) {
 		position = p;
 		size = s;
@@ -30,7 +31,9 @@ public class Frame extends JComponent {
 		return;
 	}
 
+	/* Render - callback from JFrame */
 	public void paintComponent(Graphics g) {
+		/* Render the world */
 		world.draw(g);
 
 		return;
