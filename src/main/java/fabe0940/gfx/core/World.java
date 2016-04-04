@@ -57,6 +57,15 @@ public abstract class World {
 		return;
 	}
 
+	public void drawTitle(Graphics g) {
+		g.setColor(Color.WHITE);
+		g.drawString("Mason Fabel", 5, 20);
+		g.drawString("CS324", 5, 35);
+		g.drawString("Assignment 4", 5, 50);
+
+		return;
+	}
+
 	public void moveTo3D(Graphics g, double x, double y, double z) {
 		moveTo3D(g, new Point3(x, y, z));
 

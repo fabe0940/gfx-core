@@ -16,6 +16,7 @@ public class Cube extends World {
 
 		drawBackground(g);
 		drawAxis(g);
+		drawTitle(g);
 
 		g.setColor(Color.WHITE);
 
