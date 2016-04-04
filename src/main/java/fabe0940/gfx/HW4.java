@@ -6,7 +6,7 @@ import fabe0940.gfx.core.*;
 import fabe0940.gfx.math.*;
 
 public class HW4 {
-	private static final int MODE = 4;
+	private static final int MODE = 5;
 
 	public static void main(String[] args) {
 		Viewport view;
@@ -45,7 +45,21 @@ public class HW4 {
 				world = new Rubik20(view, win);
 				break;
 			case 4:
+				view = new ScalingViewport(
+					new Point2(0, 700), new Point2(700, 700),
+					new Point2(-40.0, 40.0), new Point2(-40.0, 40.0));
+				win = new Window(
+					new Point3(33, 3.5, -15), new Point3(-30, 30, 0), 100);
+				world = new Name(view, win);
+				break;
 			case 5:
+				view = new ScalingViewport(
+					new Point2(0, 700), new Point2(700, 700),
+					new Point2(-1.0, 1.0), new Point2(-1.0, 1.0));
+				win = new Window(
+					new Point3(0, 0, 0), new Point3(-30, 30, 0), 2);
+				world = new Cube(view, win);
+				break;
 			default:
 				view = new Viewport(new Point2(0, 700), new Point2(700, 700));
 				win = new Window(
