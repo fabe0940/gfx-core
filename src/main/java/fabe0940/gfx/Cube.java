@@ -14,19 +14,12 @@ public class Cube extends World {
 
 	public void draw(Graphics g) {
 
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, 1000, 1000);
+		drawBackground(g);
+		drawAxis(g);
 
-		g.setColor(Color.BLACK);
-		moveTo3D(g, -1,  0,  0);
-		drawTo3D(g,  1,  0,  0);
-		moveTo3D(g,  0, -1,  0);
-		drawTo3D(g,  0,  1,  0);
-		moveTo3D(g,  0,  0, -1);
-		drawTo3D(g,  0,  0,  1);
+		g.setColor(Color.WHITE);
 
 		/* front */
-		g.setColor(Color.RED);
 		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
 		drawTo3D(g, new Point3( 0.5, -0.5,  0.5));
 		drawTo3D(g, new Point3(-0.5, -0.5,  0.5));
@@ -34,7 +27,6 @@ public class Cube extends World {
 		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* back */
-		g.setColor(Color.BLUE);
 		moveTo3D(g, new Point3( 0.5,  0.5, -0.5));
 		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
 		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));
@@ -42,7 +34,6 @@ public class Cube extends World {
 		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
 
 		/* left */
-		g.setColor(Color.GREEN);
 		moveTo3D(g, new Point3(-0.5,  0.5,  0.5));
 		drawTo3D(g, new Point3(-0.5,  0.5, -0.5));
 		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));
@@ -50,7 +41,6 @@ public class Cube extends World {
 		drawTo3D(g, new Point3(-0.5,  0.5,  0.5));
 
 		/* right */
-		g.setColor(Color.RED);
 		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
 		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
 		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
@@ -58,7 +48,6 @@ public class Cube extends World {
 		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* top */
-		g.setColor(Color.BLUE);
 		moveTo3D(g, new Point3( 0.5,  0.5,  0.5));
 		drawTo3D(g, new Point3( 0.5,  0.5, -0.5));
 		drawTo3D(g, new Point3(-0.5,  0.5, -0.5));
@@ -66,7 +55,6 @@ public class Cube extends World {
 		drawTo3D(g, new Point3( 0.5,  0.5,  0.5));
 
 		/* bottom */
-		g.setColor(Color.GREEN);
 		moveTo3D(g, new Point3( 0.5, -0.5,  0.5));
 		drawTo3D(g, new Point3( 0.5, -0.5, -0.5));
 		drawTo3D(g, new Point3(-0.5, -0.5, -0.5));

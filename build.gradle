@@ -3,7 +3,7 @@ apply plugin: 'application'
 
 mainClassName = 'fabe0940.gfx.HW4'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.8
 version = '0.1'
 jar {
     manifest {

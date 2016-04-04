@@ -4,6 +4,7 @@ import fabe0940.gfx.core.Viewport;
 import fabe0940.gfx.core.Window;
 import fabe0940.gfx.math.Point2;
 import fabe0940.gfx.math.Point3;
+import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class World {
@@ -20,6 +21,41 @@ public abstract class World {
 	}
 
 	public abstract void draw(Graphics g);
+
+	protected void drawBackground(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, 700, 700);
+
+		return;
+	}
+
+	protected void drawAxis(Graphics g) {
+		g.setColor(Color.RED);
+		moveTo3D(g, -1,  0,  0);
+		drawTo3D(g,  1,  0,  0);
+		g.setColor(Color.BLUE);
+		moveTo3D(g,  0, -1,  0);
+		drawTo3D(g,  0,  1,  0);
+		g.setColor(Color.GREEN);
+		moveTo3D(g,  0,  0, -1);
+		drawTo3D(g,  0,  0,  1);
+
+		g.setColor(Color.WHITE);
+		moveTo3D(g, -1, 0, 0);
+		writeTo3D(g, "-x");
+		moveTo3D(g, 1, 0, 0);
+		writeTo3D(g, "+x");
+		moveTo3D(g, 0, -1, 0);
+		writeTo3D(g, "-y");
+		moveTo3D(g, 0, 1, 0);
+		writeTo3D(g, "+y");
+		moveTo3D(g, 0, 0, -1);
+		writeTo3D(g, "-z");
+		moveTo3D(g, 0, 0, 1);
+		writeTo3D(g, "+z");
+
+		return;
+	}
 
 	public void moveTo3D(Graphics g, double x, double y, double z) {
 		moveTo3D(g, new Point3(x, y, z));

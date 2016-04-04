@@ -19,42 +19,7 @@ public class Rubik extends World {
 		drawRubik(g, new Point3(0, 0, 0), 1.0, 0.1);
 	}
 
-	private void drawBackground(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, 700, 700);
-
-		return;
-	}
-
-	private void drawAxis(Graphics g) {
-		g.setColor(Color.RED);
-		moveTo3D(g, -1,  0,  0);
-		drawTo3D(g,  1,  0,  0);
-		g.setColor(Color.BLUE);
-		moveTo3D(g,  0, -1,  0);
-		drawTo3D(g,  0,  1,  0);
-		g.setColor(Color.GREEN);
-		moveTo3D(g,  0,  0, -1);
-		drawTo3D(g,  0,  0,  1);
-
-		g.setColor(Color.WHITE);
-		moveTo3D(g, -1, 0, 0);
-		writeTo3D(g, "-x");
-		moveTo3D(g, 1, 0, 0);
-		writeTo3D(g, "+x");
-		moveTo3D(g, 0, -1, 0);
-		writeTo3D(g, "-y");
-		moveTo3D(g, 0, 1, 0);
-		writeTo3D(g, "+y");
-		moveTo3D(g, 0, 0, -1);
-		writeTo3D(g, "-z");
-		moveTo3D(g, 0, 0, 1);
-		writeTo3D(g, "+z");
-
-		return;
-	}
-
-	private void drawRubik(Graphics g, Point3 loc, double dim, double offset) {
+	protected void drawRubik(Graphics g, Point3 loc, double dim, double off) {
 		int i;
 		int j;
 		double x;
@@ -66,9 +31,9 @@ public class Rubik extends World {
 		g.setColor(Color.BLUE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() + (i * dim) + (i * offset);
-				y = loc.getY() + (j * dim) + (j * offset);
-				z = loc.getZ() + (1.5 * dim) + (2.0 * offset);
+				x = loc.getX() + (i * dim) + (i * off);
+				y = loc.getY() + (j * dim) + (j * off);
+				z = loc.getZ() + (1.5 * dim) + (2.0 * off);
 				p = new Point3(x, y, z);
 				drawSquareXY(g, p, dim);
 			}
@@ -78,9 +43,9 @@ public class Rubik extends World {
 		g.setColor(Color.GREEN);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() + (i * dim) + (i * offset);
-				y = loc.getY() + (j * dim) + (j * offset);
-				z = loc.getZ() - (1.5 * dim) - (2.0 * offset);
+				x = loc.getX() + (i * dim) + (i * off);
+				y = loc.getY() + (j * dim) + (j * off);
+				z = loc.getZ() - (1.5 * dim) - (2.0 * off);
 				p = new Point3(x, y, z);
 				drawSquareXY(g, p, dim);
 			}
@@ -90,9 +55,9 @@ public class Rubik extends World {
 		g.setColor(Color.RED);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() + (1.5 * dim) + (2.0 * offset);
-				y = loc.getY() + (i * dim) + (i * offset);
-				z = loc.getZ() + (j * dim) + (j * offset);
+				x = loc.getX() + (1.5 * dim) + (2.0 * off);
+				y = loc.getY() + (i * dim) + (i * off);
+				z = loc.getZ() + (j * dim) + (j * off);
 				p = new Point3(x, y, z);
 				drawSquareYZ(g, p, dim);
 			}
@@ -102,9 +67,9 @@ public class Rubik extends World {
 		g.setColor(Color.ORANGE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() - (1.5 * dim) - (2.0 * offset);
-				y = loc.getY() + (i * dim) + (i * offset);
-				z = loc.getZ() + (j * dim) + (j * offset);
+				x = loc.getX() - (1.5 * dim) - (2.0 * off);
+				y = loc.getY() + (i * dim) + (i * off);
+				z = loc.getZ() + (j * dim) + (j * off);
 				p = new Point3(x, y, z);
 				drawSquareYZ(g, p, dim);
 			}
@@ -114,9 +79,9 @@ public class Rubik extends World {
 		g.setColor(Color.WHITE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() + (i * dim) + (i * offset);
-				y = loc.getY() + (1.5 * dim) + (2.0 * offset);
-				z = loc.getZ() + (j * dim) + (j * offset);
+				x = loc.getX() + (i * dim) + (i * off);
+				y = loc.getY() + (1.5 * dim) + (2.0 * off);
+				z = loc.getZ() + (j * dim) + (j * off);
 				p = new Point3(x, y, z);
 				drawSquareXZ(g, p, dim);
 			}
@@ -126,9 +91,9 @@ public class Rubik extends World {
 		g.setColor(Color.YELLOW);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
-				x = loc.getX() + (i * dim) + (i * offset);
-				y = loc.getY() - (1.5 * dim) - (2.0 * offset);
-				z = loc.getZ() + (j * dim) + (j * offset);
+				x = loc.getX() + (i * dim) + (i * off);
+				y = loc.getY() - (1.5 * dim) - (2.0 * off);
+				z = loc.getZ() + (j * dim) + (j * off);
 				p = new Point3(x, y, z);
 				drawSquareXZ(g, p, dim);
 			}
