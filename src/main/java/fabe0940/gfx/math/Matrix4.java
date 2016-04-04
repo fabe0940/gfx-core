@@ -7,6 +7,7 @@ public class Matrix4 {
 	public static final int dim = 4;
 	private double[][] M;
 
+	/* Print a matrix to stdout */
 	public static void print(Matrix4 m) {
 		int col;
 		int row;
@@ -24,6 +25,7 @@ public class Matrix4 {
 		return;
 	}
 
+	/* Multiply a point by a matrix */
 	public static Point4 multiply(Point4 x, Matrix4 a) {
 		int i;
 		double val;
@@ -39,6 +41,7 @@ public class Matrix4 {
 		return res;
 	}
 
+	/* Multiply two matrices */
 	public static Matrix4 multiply(Matrix4 a, Matrix4 b) {
 		int col;
 		int row;
@@ -63,6 +66,7 @@ public class Matrix4 {
 		return res;
 	}
 
+	/* Compute the sum of b where a[i] is the coefficient of b[i] */
 	private static double coeff(double[] a, double[] b) {
 		int i;
 		double res;
@@ -75,6 +79,7 @@ public class Matrix4 {
 		return res;
 	}
 
+	/* Default constructor */
 	public Matrix4() {
 		int col;
 		int row;
@@ -90,6 +95,7 @@ public class Matrix4 {
 		return;
 	}
 
+	/* Construct from double[][] */
 	public Matrix4(double[][] vals) {
 		int col;
 		int row;
@@ -105,6 +111,7 @@ public class Matrix4 {
 		return;
 	}
 
+	/* Get a column as a double[] */
 	public double[] getCol(int col) {
 		int row;
 		double[] res = new double[dim];
@@ -116,14 +123,17 @@ public class Matrix4 {
 		return res;
 	}
 
+	/* Get a specific entry */
 	public double getEntry(int row, int col) {
 		return M[row][col];
 	}
 
+	/* Get a row as a double[] */
 	public double[] getRow(int row) {
 		return M[row];
 	}
 
+	/* Set a specific entry */
 	public void setEntry(int row, int col, double val) {
 		M[row][col] = val;
 

@@ -4,6 +4,7 @@ import java.lang.Math;
 import fabe0940.gfx.math.Matrix4;
 
 public class Matrix4Factory {
+	/* Construct an identity matrix */
 	public static Matrix4 identity() {
 		int col;
 		int row;
@@ -20,6 +21,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a scaling transform matrix */
 	public static Matrix4 scaling(double x, double y, double z) {
 		Matrix4 res;
 
@@ -31,6 +33,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a translating transform matrix */
 	public static Matrix4 translation(double x, double y, double z) {
 		Matrix4 res;
 
@@ -42,6 +45,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a perspective transform matrix */
 	public static Matrix4 perspective(double r) {
 		Matrix4 res;
 
@@ -51,6 +55,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a X scaling transform matrix */
 	public static Matrix4 scalingX(double x) {
 		Matrix4 res;
 
@@ -60,6 +65,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Y scaling transform matrix */
 	public static Matrix4 scalingY(double y) {
 		Matrix4 res;
 
@@ -69,6 +75,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Z scaling transform matrix */
 	public static Matrix4 scalingZ(double z) {
 		Matrix4 res;
 
@@ -78,6 +85,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a X translating transform matrix */
 	public static Matrix4 translationX(double x) {
 		Matrix4 res;
 
@@ -87,6 +95,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Y translating transform matrix */
 	public static Matrix4 translationY(double y) {
 		Matrix4 res;
 
@@ -96,6 +105,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Z translating transform matrix */
 	public static Matrix4 translationZ(double z) {
 		Matrix4 res;
 
@@ -105,6 +115,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a X rotating transform matrix */
 	public static Matrix4 rotationX(double deg) {
 		Matrix4 res;
 
@@ -117,6 +128,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Y rotating transform matrix */
 	public static Matrix4 rotationY(double deg) {
 		Matrix4 res;
 
@@ -129,6 +141,7 @@ public class Matrix4Factory {
 		return res;
 	}
 
+	/* Construct a Z rotating transform matrix */
 	public static Matrix4 rotationZ(double deg) {
 		Matrix4 res;
 

@@ -4,6 +4,7 @@ public class Point2 {
 	public static final int dim = 2;
 	private double[] P;
 
+	/* Print a point to stdout */
 	public static void print(Point2 p) {
 		int i;
 
@@ -18,6 +19,7 @@ public class Point2 {
 		return;
 	}
 
+	/* Default constructor */
 	public Point2() {
 		int i;
 
@@ -30,6 +32,7 @@ public class Point2 {
 		return;
 	}
 
+	/* Construct from double[] */
 	public Point2(double[] vals) {
 		int i;
 
@@ -42,6 +45,7 @@ public class Point2 {
 		return;
 	}
 
+	/* Construct from individual doubles */
 	public Point2(double x, double y) {
 		P = new double[dim];
 
@@ -51,22 +55,27 @@ public class Point2 {
 		return;
 	}
 
+	/* Get internal array */
 	public double[] get() {
 		return P;
 	}
 
+	/* Get specific array entry */
 	public double getEntry(int i) {
 		return P[i];
 	}
 
+	/* Get X value */
 	public double getX() {
 		return getEntry(0);
 	}
 
+	/* Get Y value */
 	public double getY() {
 		return getEntry(1);
 	}
 
+	/* Set specific array entry */
 	public void setEntry(int i, double val) {
 		P[i] = val;
 
