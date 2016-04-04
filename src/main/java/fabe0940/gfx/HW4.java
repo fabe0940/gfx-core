@@ -6,7 +6,7 @@ import fabe0940.gfx.core.*;
 import fabe0940.gfx.math.*;
 
 public class HW4 {
-	private static final int MODE = 5;
+	private static final int MODE = 0;
 
 	public static void main(String[] args) {
 		Viewport view;
@@ -55,10 +55,10 @@ public class HW4 {
 			case 5:
 				view = new ScalingViewport(
 					new Point2(0, 700), new Point2(700, 700),
-					new Point2(-1.0, 1.0), new Point2(-1.0, 1.0));
+					new Point2(-25.0, 25.0), new Point2(-25.0, 25.0));
 				win = new Window(
-					new Point3(0, 0, 0), new Point3(-30, 30, 0), 2);
-				world = new Cube(view, win);
+					new Point3(15, 15, 1.5), new Point3(15, -30, 0), 30);
+				world = new Recognizer(view, win);
 				break;
 			default:
 				view = new Viewport(new Point2(0, 700), new Point2(700, 700));
