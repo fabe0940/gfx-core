@@ -6,7 +6,7 @@ import fabe0940.gfx.core.*;
 import fabe0940.gfx.math.*;
 
 public class HW4 {
-	private static final int MODE = 1;
+	private static final int MODE = 2;
 
 	public static void main(String[] args) {
 		Viewport view;

@@ -8,17 +8,22 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rubik extends World {
+	/* Constructor */
 	public Rubik(Viewport v, Window w) {
 		super(v, w);
 	}
 
+	/* Render */
 	public void draw(Graphics g) {
+		/* Set up window for drawing */
 		drawBackground(g);
-		drawAxis(g);
+		drawTitle(g);
 
+		/* Draw Rubik's cube */
 		drawRubik(g, new Point3(0, 0, 0), 1.0, 0.1);
 	}
 
+	/* Draw a Rubik's cube with a given centerpoint, square size, and gap */
 	protected void drawRubik(Graphics g, Point3 loc, double dim, double off) {
 		int i;
 		int j;
@@ -27,7 +32,7 @@ public class Rubik extends World {
 		double z;
 		Point3 p;
 
-		/* front */
+		/* +Z face */
 		g.setColor(Color.BLUE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -39,7 +44,7 @@ public class Rubik extends World {
 			}
 		}
 
-		/* back */
+		/* -Z face */
 		g.setColor(Color.GREEN);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -51,7 +56,7 @@ public class Rubik extends World {
 			}
 		}
 
-		/* left */
+		/* -X face */
 		g.setColor(Color.RED);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -63,7 +68,7 @@ public class Rubik extends World {
 			}
 		}
 
-		/* right */
+		/* +X face */
 		g.setColor(Color.ORANGE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -75,7 +80,7 @@ public class Rubik extends World {
 			}
 		}
 
-		/* top */
+		/* +Y face */
 		g.setColor(Color.WHITE);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -87,7 +92,7 @@ public class Rubik extends World {
 			}
 		}
 
-		/* bottom */
+		/* -Y face */
 		g.setColor(Color.YELLOW);
 		for (i = -1; i <= 1; i++) {
 			for (j = -1; j <= 1; j++) {
@@ -102,6 +107,7 @@ public class Rubik extends World {
 		return;
 	}
 
+	/* Draw a dim x dim square in the XY plane */
 	private void drawSquareXY(Graphics g, Point3 loc, double dim) {
 		double offset;
 
@@ -116,6 +122,7 @@ public class Rubik extends World {
 		return;
 	}
 
+	/* Draw a dim x dim square in the XZ plane */
 	private void drawSquareXZ(Graphics g, Point3 loc, double dim) {
 		double offset;
 
@@ -130,6 +137,7 @@ public class Rubik extends World {
 		return;
 	}
 
+	/* Draw a dim x dim square in the YZ plane */
 	private void drawSquareYZ(Graphics g, Point3 loc, double dim) {
 		double offset;
 
