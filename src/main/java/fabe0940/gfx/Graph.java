@@ -19,19 +19,24 @@ public class Graph extends World {
 	private static double Z_FROM = -5.0;
 	private static double Z_TO = 5.0;
 
+	/* Constructor */
 	public Graph(Viewport v, Window w) {
 		super(v, w);
 
 		return;
 	}
 
+	/* Render */
 	public void draw(Graphics g) {
 		double x;
 		double y;
 		double z;
 
+		/* Set up window for drawing */
 		drawBackground(g);
+		drawTitle(g);
 
+		/* Scan in Y direction */
 		x = X_FROM;
 		y = Y_FROM;
 		z = z(x, y);
@@ -47,6 +52,7 @@ public class Graph extends World {
 			moveTo3D(g, x, z, y);
 		}
 
+		/* Scan in X direction */
 		x = X_FROM;
 		y = Y_FROM;
 		z = z(x, y);
@@ -62,6 +68,13 @@ public class Graph extends World {
 			moveTo3D(g, x, z, y);
 		}
 
+		/* NOTE:
+		 * The axis are drawn after the graph so that they appear in the
+		 * foreground of the rendered scene. This is to maximize the
+		 * legibility of the labels
+		 */
+
+		/* Draw axis */
 		g.setColor(Color.WHITE);
 		moveTo3D(g, X_FROM, 0, 0);
 		drawTo3D(g, X_TO, 0, 0);
@@ -70,6 +83,7 @@ public class Graph extends World {
 		moveTo3D(g, 0, Z_FROM, 0);
 		drawTo3D(g, 0, Z_TO, 0);
 
+		/* Draw labels */
 		moveTo3D(g, X_FROM - 0.3, 0, 0);
 		writeTo3D(g, "-x");
 		moveTo3D(g, X_TO, 0, 0);
@@ -83,6 +97,7 @@ public class Graph extends World {
 		moveTo3D(g, 0, Z_TO, 0);
 		writeTo3D(g, "+z");
 
+		/* Draw units */
 		moveTo3D(g, 1, 0, 0);
 		writeTo3D(g, "1");
 		moveTo3D(g, 2, 0, 0);
@@ -105,6 +120,7 @@ public class Graph extends World {
 		return;
 	}
 
+	/* Function to graph */
 	public double z(double x, double y) {
 		double r;
 		double res;
@@ -115,8 +131,16 @@ public class Graph extends World {
 		return res;
 	}
 
+	/* Point color as a function of location */
 	public Color calcColor(double x, double y, double z) {
 		Color res;
+
+		/* NOTE:
+		 * Coloration is done in Hue Saturation Brightness (HSB, also known as
+		 * HSV) in order to keep all the colors vibrant. RGB as a function of
+		 * (x, y, z) resulted in washed out colors that made the whole graph
+		 * difficult to read.
+		 */
 
 		res = new Color(Color.HSBtoRGB(
 			(float) ((x * y) / (4.0 * Math.PI * Math.PI)),
