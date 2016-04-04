@@ -8,15 +8,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Recognizer extends World {
+	/* Constructor */
 	public Recognizer(Viewport v, Window w) {
 		super(v, w);
 	}
 
+	/* Render */
 	public void draw(Graphics g) {
 
+		/* Set up window for drawing */
 		drawBackground(g);
+		drawTitle(g);
 
 		g.setColor(Color.RED);
+
+		/* Render recognizer */
 
 		/* lower left leg */
 		moveTo3D(g,  0,  0,  3);
@@ -325,7 +331,6 @@ public class Recognizer extends World {
 		drawTo3D(g, 16, 28, 1);
 		drawTo3D(g, 14, 28, 1);
 		drawTo3D(g,  8, 25, 0);
-
 		moveTo3D(g,  8, 25,  3);
 		drawTo3D(g,  8, 25,  0);
 		moveTo3D(g, 22, 25,  3);
